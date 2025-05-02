@@ -1,0 +1,25 @@
+name: Deploy Server to EC2
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'server/**'
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update and deploy
+        run: |
+          cd ~/chatapp/server
+          git fetch origin
+          git reset --hard origin/master
+          yarn
+          pm2 restart chatapp-server || pm2 start app.js --name "chatapp-server" --watch
+          pm2 save

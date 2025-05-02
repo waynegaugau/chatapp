@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Mulish', sans-serif;
+    background-color: #080e20;
+  }
+}
+
+.scrollbar-hidden {
+  scroll-behavior: smooth;
+  scroll-snap-align: 20px;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: white;
+  box-shadow: 0 0 0px 1000px #080e20 inset;
+  transition: background-color 5000s ease-in-out 0s;
+  color: white;
+}

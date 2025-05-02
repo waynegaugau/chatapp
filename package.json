@@ -1,0 +1,19 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start:server": "yarn workspace server start",
+    "start:client": "yarn workspace client dev --host",
+    "dev": "concurrently --kill-others-on-fail \"yarn start:server\" \"yarn start:client\""
+  },
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
